@@ -12,4 +12,13 @@
 
 --overlap-percent - the amount at which grains overlap each other
 
-Note: the script applies an exponential fade to the output
+
+For a longer/shorter output adjust:
+
+`target_len = 1 * len(audio)`
+
+(>1 lengthens; <1 shortens). e.g:
+
+`target_len = 2 * len(audio)`
+
+^^^ the output will be twice the length of the input.
