@@ -17,7 +17,7 @@ def main():
     parser = argparse.ArgumentParser(
         description="Granular WAV processor for IR files. "
                     "Splits audio into zero-aligned grains, randomly rearranges them "
-                    "with crossfades, and extends the output by >=2x."
+                    "with crossfades, and lengthens/shortens the output."
     )
     parser.add_argument("input", help="Path to input WAV file")
     parser.add_argument("output", help="Path to output WAV file")
