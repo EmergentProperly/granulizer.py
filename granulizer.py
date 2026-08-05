@@ -29,6 +29,8 @@ def main():
                         help="Randomly swap left/right channel assignments per grain")
     parser.add_argument("--overlap-percent", type=float, default=0.66,
                         help="Grain overlap ratio (0.0-1.0). Higher = denser cloud. Default: 0.66")
+    parser.add_argument("--length", type=float, default=1.0,
+                    help="Output length multiplier relative to input (e.g., 2.0 for 2x length). Default: 1.0")
 
 
     args = parser.parse_args()
@@ -60,7 +62,7 @@ def main():
 
     hop_size = int(args.grain_size * (1.0 - args.overlap_percent))
     hop_size = max(hop_size, fade_len)
-    target_len = 1 * len(audio)      #             <------ adjust this to alter the output length
+    target_len = int(args.length * len(audio))
     num_output_grains = int(np.ceil((target_len - args.grain_size) / hop_size)) + 1
 
 
